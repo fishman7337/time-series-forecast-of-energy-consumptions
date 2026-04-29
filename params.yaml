@@ -1,0 +1,25 @@
+data:
+  raw_path: data/raw/CA2-Energy-Consumption-Data.csv
+  date_column: DATE
+  targets:
+    - Gas Consumption (tons)
+    - Electricity Consumption (MWh)
+    - Water Consumption (tons)
+
+split:
+  test_horizon_months: 60
+
+forecast:
+  steps: 60
+
+models:
+  Gas Consumption (tons):
+    family: arima
+    order: [18, 2, 9]
+  Electricity Consumption (MWh):
+    family: sarimax
+    order: [3, 1, 4]
+    seasonal_order: [5, 1, 6, 12]
+  Water Consumption (tons):
+    family: arima
+    order: [9, 2, 17]

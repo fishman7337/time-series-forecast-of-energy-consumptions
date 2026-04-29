@@ -1,0 +1,12 @@
+cff-version: 1.2.0
+message: "If you reference this academic project, please cite it using this metadata."
+title: "Energy Consumption Forecasting"
+authors:
+  - family-names: "Goh"
+    given-names: "Kun Ming"
+type: software
+version: "0.1.0"
+date-released: "2025-02-01"
+institution: "Singapore Polytechnic, School of Computing"
+abstract: "A time-series forecasting project for gas, electricity, and water consumption using ARIMA and SARIMAX models."
+repository-code: "https://github.com/fishman7337/time-series-forecast-of-energy-consumptions"

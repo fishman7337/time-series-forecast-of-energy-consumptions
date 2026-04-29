@@ -1,0 +1,35 @@
+stages:
+  validate:
+    cmd: python -m energy_forecasting.cli validate --data data/raw/CA2-Energy-Consumption-Data.csv
+    deps:
+      - src/energy_forecasting
+      - data/raw/CA2-Energy-Consumption-Data.csv
+    params:
+      - data
+
+  evaluate:
+    cmd: python -m energy_forecasting.cli evaluate --data data/raw/CA2-Energy-Consumption-Data.csv --metrics-file reports/metrics.json
+    deps:
+      - src/energy_forecasting
+      - data/raw/CA2-Energy-Consumption-Data.csv
+    metrics:
+      - reports/metrics.json:
+          cache: false
+    params:
+      - split
+      - models
+
+  train:
+    cmd: python -m energy_forecasting.cli train --data data/raw/CA2-Energy-Consumption-Data.csv --models-dir models --forecast-file reports/forecasts.json
+    deps:
+      - src/energy_forecasting
+      - data/raw/CA2-Energy-Consumption-Data.csv
+    outs:
+      - models:
+          persist: true
+    metrics:
+      - reports/forecasts.json:
+          cache: false
+    params:
+      - forecast
+      - models
