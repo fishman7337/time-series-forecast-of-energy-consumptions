@@ -19,8 +19,10 @@ env/
 # Local data and generated artifacts
 data/raw/*
 !data/raw/.gitkeep
+!data/raw/README.md
 data/processed/*
 !data/processed/.gitkeep
+!data/processed/README.md
 models/*
 !models/.gitkeep
 !models/README.md

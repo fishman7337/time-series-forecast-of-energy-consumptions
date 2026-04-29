@@ -110,3 +110,7 @@ Every push should pass:
 This is an academic forecasting project, not a production utility planning
 system. Forecasts depend on the supplied historical dataset and should be
 reviewed with domain knowledge before any operational use.
+
+## License
+
+This project is released under the MIT License. See [LICENSE](LICENSE).
