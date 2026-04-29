@@ -1,0 +1,68 @@
+{
+  "sections": [
+    {
+      "file": "notebooks/sections/00_project_context.ipynb",
+      "title": "Project Context",
+      "source_notebook": "notebooks/A-Time-Series.ipynb",
+      "source_cell_start": 0,
+      "source_cell_end_exclusive": 1,
+      "cell_count": 1
+    },
+    {
+      "file": "notebooks/sections/01_importing_modules.ipynb",
+      "title": "Importing of Modules",
+      "source_notebook": "notebooks/A-Time-Series.ipynb",
+      "source_cell_start": 1,
+      "source_cell_end_exclusive": 20,
+      "cell_count": 19
+    },
+    {
+      "file": "notebooks/sections/02_data_analysis.ipynb",
+      "title": "Data Analysis",
+      "source_notebook": "notebooks/A-Time-Series.ipynb",
+      "source_cell_start": 20,
+      "source_cell_end_exclusive": 46,
+      "cell_count": 26
+    },
+    {
+      "file": "notebooks/sections/03_data_cleaning.ipynb",
+      "title": "Data Cleaning",
+      "source_notebook": "notebooks/A-Time-Series.ipynb",
+      "source_cell_start": 46,
+      "source_cell_end_exclusive": 60,
+      "cell_count": 14
+    },
+    {
+      "file": "notebooks/sections/04_feature_engineering.ipynb",
+      "title": "Feature Engineering",
+      "source_notebook": "notebooks/A-Time-Series.ipynb",
+      "source_cell_start": 60,
+      "source_cell_end_exclusive": 80,
+      "cell_count": 20
+    },
+    {
+      "file": "notebooks/sections/05_data_visualisation.ipynb",
+      "title": "Data Visualisation",
+      "source_notebook": "notebooks/A-Time-Series.ipynb",
+      "source_cell_start": 80,
+      "source_cell_end_exclusive": 104,
+      "cell_count": 24
+    },
+    {
+      "file": "notebooks/sections/06_model_training.ipynb",
+      "title": "Model Training",
+      "source_notebook": "notebooks/A-Time-Series.ipynb",
+      "source_cell_start": 104,
+      "source_cell_end_exclusive": 156,
+      "cell_count": 52
+    },
+    {
+      "file": "notebooks/sections/07_model_evaluation_and_deployment.ipynb",
+      "title": "Model Evaluation and Deployment",
+      "source_notebook": "notebooks/A-Time-Series.ipynb",
+      "source_cell_start": 156,
+      "source_cell_end_exclusive": 172,
+      "cell_count": 16
+    }
+  ]
+}

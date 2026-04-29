@@ -49,6 +49,9 @@ Place the raw CA2 dataset at:
 data/raw/CA2-Energy-Consumption-Data.csv
 ```
 
+Optional local configuration can be copied from `.env.example` if you prefer to
+keep path and forecast settings in environment variables.
+
 Validate the dataset:
 
 ```powershell
@@ -86,6 +89,7 @@ for the full data contract and handling notes.
 ## Main Artifacts
 
 - Notebook: [notebooks/A-Time-Series.ipynb](notebooks/A-Time-Series.ipynb)
+- Split notebooks: [notebooks/sections](notebooks/sections)
 - Presentation: [reports/presentation/AIML-Part-A-Presentation-GohKunMing.pptx](reports/presentation/AIML-Part-A-Presentation-GohKunMing.pptx)
 - Source package: [src/energy_forecasting](src/energy_forecasting)
 - MLOps guide: [docs/MLOPS.md](docs/MLOPS.md)
