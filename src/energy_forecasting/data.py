@@ -50,8 +50,24 @@ def prepare_energy_dataframe(
 
     prepared = prepared.sort_values(date_column).set_index(date_column)
     prepared.index.name = date_column
+    validate_monthly_index(prepared.index)
     validate_positive_targets(prepared, target_columns)
     return prepared
+
+
+def validate_monthly_index(index: pd.DatetimeIndex) -> None:
+    """Ensure observations represent one uninterrupted chronological monthly series."""
+    if not isinstance(index, pd.DatetimeIndex):
+        raise TypeError("Energy data index must be a pandas DatetimeIndex")
+    if len(index) < 2:
+        return
+
+    month_ordinals = index.to_period("M").asi8
+    month_steps = month_ordinals[1:] - month_ordinals[:-1]
+    if (month_steps != 1).any():
+        raise ValueError(
+            "Energy observations must contain exactly one row for every consecutive month"
+        )
 
 
 def validate_schema(df: pd.DataFrame, required_columns: Iterable[str]) -> None:

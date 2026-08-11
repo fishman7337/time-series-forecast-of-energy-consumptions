@@ -58,6 +58,9 @@ def train_and_save_default_models(
     forecast_steps: int = DEFAULT_FORECAST_STEPS,
 ) -> dict[str, dict[str, str | list[float]]]:
     """Train final models on all available data, save them, and return forecast metadata."""
+    if type(forecast_steps) is not int or forecast_steps <= 0:
+        raise ValueError("forecast_steps must be a plain positive integer")
+
     specs = default_model_specs()
     results: dict[str, dict[str, str | list[float]]] = {}
 

@@ -11,8 +11,8 @@ def train_test_split_by_horizon(
     horizon: int,
 ) -> tuple[pd.DataFrame | pd.Series, pd.DataFrame | pd.Series]:
     """Split a time series so the final ``horizon`` rows are reserved for testing."""
-    if horizon <= 0:
-        raise ValueError("horizon must be greater than zero")
+    if type(horizon) is not int or horizon <= 0:
+        raise ValueError("horizon must be a plain positive integer")
     if len(data) <= horizon:
         raise ValueError("horizon must be smaller than the number of observations")
 
@@ -38,8 +38,8 @@ def future_period_index(
     fallback_frequency: str = "MS",
 ) -> pd.DatetimeIndex:
     """Create a future date index that continues the observed time-series frequency."""
-    if steps <= 0:
-        raise ValueError("steps must be greater than zero")
+    if type(steps) is not int or steps <= 0:
+        raise ValueError("steps must be a plain positive integer")
     if not isinstance(observed_index, pd.DatetimeIndex):
         raise TypeError("observed_index must be a pandas DatetimeIndex")
     if observed_index.empty:
