@@ -26,7 +26,6 @@ class ForecastModelSpec:
 
     def validate(self) -> None:
         """Validate the model family and required seasonal configuration."""
-
         if self.family not in {"arima", "sarimax"}:
             raise ValueError(f"Unsupported model family: {self.family}")
         if self.family == "sarimax" and self.seasonal_order is None:
@@ -35,7 +34,6 @@ class ForecastModelSpec:
 
 def fit_univariate_model(series: pd.Series, spec: ForecastModelSpec):
     """Fit an ARIMA or SARIMAX model to a single log-transformed target series."""
-
     spec.validate()
     if series.empty:
         raise ValueError("series must contain at least one observation")
@@ -48,7 +46,6 @@ def fit_univariate_model(series: pd.Series, spec: ForecastModelSpec):
 
 def save_model(model, target_name: str, model_dir: str | Path = MODEL_DIR) -> Path:
     """Persist a fitted statsmodels result object with a filesystem-safe name."""
-
     output_dir = Path(model_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
     safe_target = _safe_name(target_name)

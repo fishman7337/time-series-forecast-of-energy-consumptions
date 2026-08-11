@@ -61,7 +61,13 @@ target-version = "py310"
 extend-exclude = ["notebooks"]
 
 [tool.ruff.lint]
-select = ["E", "F", "I", "B", "UP", "SIM"]
+select = ["E", "F", "I", "B", "UP", "SIM", "D"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**/*.py" = ["D"]
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
 
 [tool.bandit]
 exclude_dirs = ["tests", ".venv"]

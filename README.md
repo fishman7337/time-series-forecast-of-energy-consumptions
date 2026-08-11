@@ -9,6 +9,15 @@ the Diploma in Applied AI & Analytics. It was submitted for the AI & Machine
 Learning module (ST1511), CA2 Part A, by Goh Kun Ming, DAAA student, in AY24/25
 Year 1 Semester 2. The lecturer was Adjunct Lecturer Tai Hock Lin (Andy).
 
+## Evidence and interpretation
+
+| Evidence-backed measure | Current repository evidence |
+| --- | --- |
+| Forecast horizon | The configured holdout and deployment horizon is **60 months**. |
+| Utility coverage | The workflow models **3 consumption streams**: electricity, gas, and water, using ARIMA/SARIMAX-family methods. |
+
+The qualitative outcome is a reproducible time-series workflow with data validation, outlier handling, forecasting, evaluation, and model persistence. The 60-month value is a horizon, not an accuracy or sustainability-impact claim.
+
 ## Project Goals
 
 - Clean and validate monthly energy consumption data.

@@ -12,7 +12,6 @@ from energy_forecasting.config import DATE_COLUMN, DEFAULT_DATA_PATH, TARGET_COL
 
 def load_energy_data(path: str | Path = DEFAULT_DATA_PATH) -> pd.DataFrame:
     """Load the raw coursework CSV and return a validated time-indexed frame."""
-
     csv_path = Path(path)
     if not csv_path.exists():
         raise FileNotFoundError(
@@ -32,7 +31,6 @@ def prepare_energy_dataframe(
     drop_duplicate_dates: bool = True,
 ) -> pd.DataFrame:
     """Validate, type-cast, sort, and index the energy consumption dataframe."""
-
     target_columns = tuple(target_columns)
     required_columns = (date_column, *target_columns)
     validate_schema(df, required_columns)
@@ -58,7 +56,6 @@ def prepare_energy_dataframe(
 
 def validate_schema(df: pd.DataFrame, required_columns: Iterable[str]) -> None:
     """Raise a readable error if expected columns are missing."""
-
     missing = [column for column in required_columns if column not in df.columns]
     if missing:
         missing_text = ", ".join(missing)
@@ -70,7 +67,6 @@ def validate_positive_targets(
     target_columns: Iterable[str] = TARGET_COLUMNS,
 ) -> None:
     """Ensure target values are strictly positive before log transformation."""
-
     invalid_counts = {
         column: int((df[column] <= 0).sum())
         for column in target_columns
@@ -91,7 +87,6 @@ def remove_iqr_outliers(
     whisker_width: float = 1.5,
 ) -> tuple[pd.DataFrame, dict[str, tuple[float, float]]]:
     """Remove IQR outliers from selected columns and return the cleaned data plus bounds."""
-
     cleaned = df.copy()
     bounds: dict[str, tuple[float, float]] = {}
 
