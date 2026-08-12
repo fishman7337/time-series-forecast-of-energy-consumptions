@@ -25,7 +25,6 @@ from energy_forecasting.models import ForecastModelSpec, fit_univariate_model, s
 
 def default_model_specs() -> dict[str, ForecastModelSpec]:
     """Build typed model specifications from the project config."""
-
     specs: dict[str, ForecastModelSpec] = {}
     for target, config in DEFAULT_MODEL_CONFIG.items():
         specs[target] = ForecastModelSpec(
@@ -44,7 +43,6 @@ def evaluate_model(
     horizon: int = DEFAULT_TEST_HORIZON,
 ) -> dict[str, float]:
     """Evaluate one configured model against a chronological holdout window."""
-
     train, test = train_test_split_by_horizon(data[target], horizon)
     train_log = log_transform(train)
     fitted_model = fit_univariate_model(train_log, spec)
@@ -60,6 +58,8 @@ def train_and_save_default_models(
     forecast_steps: int = DEFAULT_FORECAST_STEPS,
 ) -> dict[str, dict[str, str | list[float]]]:
     """Train final models on all available data, save them, and return forecast metadata."""
+    if type(forecast_steps) is not int or forecast_steps <= 0:
+        raise ValueError("forecast_steps must be a plain positive integer")
 
     specs = default_model_specs()
     results: dict[str, dict[str, str | list[float]]] = {}
@@ -80,7 +80,6 @@ def train_and_save_default_models(
 
 def write_json_report(payload: dict, output_path: str | Path) -> Path:
     """Write a JSON metrics or forecast report."""
-
     path = Path(output_path)
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(payload, indent=2), encoding="utf-8")

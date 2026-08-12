@@ -22,6 +22,11 @@ from energy_forecasting.pipeline import (
 
 
 def build_parser() -> argparse.ArgumentParser:
+    """Build the energy-forecasting workflow argument parser.
+
+    Returns:
+        Parser with validation, evaluation, and training subcommands.
+    """
     parser = argparse.ArgumentParser(description="Energy consumption forecasting workflow")
     subparsers = parser.add_subparsers(dest="command", required=True)
 
@@ -43,6 +48,14 @@ def build_parser() -> argparse.ArgumentParser:
 
 
 def main(argv: list[str] | None = None) -> int:
+    """Run validation, evaluation, or model training.
+
+    Args:
+        argv: Optional argument list. Uses process arguments when omitted.
+
+    Returns:
+        Process exit code for the selected workflow.
+    """
     parser = build_parser()
     args = parser.parse_args(argv)
 

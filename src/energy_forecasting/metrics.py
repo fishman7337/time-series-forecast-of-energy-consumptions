@@ -14,7 +14,6 @@ from sklearn.metrics import (
 
 def regression_metrics(y_true: np.ndarray, y_pred: np.ndarray) -> dict[str, float]:
     """Return the regression metrics used in the notebook and reports."""
-
     actual = np.asarray(y_true, dtype=float)
     predicted = np.asarray(y_pred, dtype=float)
 

@@ -38,6 +38,21 @@ def test_prepare_energy_dataframe_rejects_non_positive_targets() -> None:
         prepare_energy_dataframe(raw)
 
 
+def test_prepare_energy_dataframe_rejects_missing_months() -> None:
+    raw = _raw_frame().drop(index=2)
+
+    with pytest.raises(ValueError, match="every consecutive month"):
+        prepare_energy_dataframe(raw)
+
+
+def test_prepare_energy_dataframe_rejects_multiple_rows_in_one_month() -> None:
+    raw = _raw_frame()
+    raw.loc[0, "DATE"] = "15/02/2020"
+
+    with pytest.raises(ValueError, match="every consecutive month"):
+        prepare_energy_dataframe(raw)
+
+
 def test_remove_iqr_outliers_returns_bounds() -> None:
     data = pd.DataFrame({"value": [10, 11, 12, 13, 1000]})
 

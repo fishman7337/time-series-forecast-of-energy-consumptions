@@ -15,7 +15,7 @@ coursework-provided data unless redistribution rights are confirmed.
 
 | Column | Required | Type | Validation |
 | --- | --- | --- | --- |
-| `DATE` | Yes | Date | Parsed with day-first formatting. |
+| `DATE` | Yes | Date | Parsed day-first; exactly one consecutive observation per month. |
 | `Gas Consumption (tons)` | Yes | Numeric | Must be strictly positive. |
 | `Electricity Consumption (MWh)` | Yes | Numeric | Must be strictly positive. |
 | `Water Consumption (tons)` | Yes | Numeric | Must be strictly positive. |
@@ -30,7 +30,8 @@ The reusable loader:
 4. Converts target columns to numeric values.
 5. Drops rows with missing required values.
 6. Sorts by date and sets `DATE` as the index.
-7. Checks that target values are positive for log transformation.
+7. Rejects missing months or multiple observations in the same month.
+8. Checks that target values are positive for log transformation.
 
 ## Known Constraints
 
